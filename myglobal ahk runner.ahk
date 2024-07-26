@@ -2,14 +2,13 @@
 global running := false  ; Track whether the controlled scripts are running
 global PIDs := []  ; Array to store the PIDs of the started scripts
 
+MsgBox, Hello, World!, Special Mode on.
 +F12::ToggleSubScripts()  ; SHIFT+F12 to toggle the execution of sub-scripts
 
 ToggleSubScripts() {
     running := !running
     if running {
         ; Run each AHK script and store the PID
-        Run, "%A_ScriptDir%\caps lock is ctrl and esc.ahk", , , pid1
-        PIDs.Push(pid1)
         Run, "%A_ScriptDir%\Excel ctrl backspace.ahk", , , pid2
         PIDs.Push(pid2)
         Run, "%A_ScriptDir%\jikl Arrow keys.ahk", , , pid3
